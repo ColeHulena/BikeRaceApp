@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace BikeRaceApp
 {
-    public partial class Form1 : Form
+    public partial class FormAddRider : Form
     {
-        public Form1()
+        public FormAddRider()
         {
             InitializeComponent();
         }
