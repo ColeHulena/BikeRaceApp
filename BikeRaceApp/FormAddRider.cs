@@ -12,11 +12,15 @@ namespace BikeRaceApp
 {
     public partial class FormAddRider : Form
     {
-        public FormAddRider()
+        RaceManager rm;
+        bool team = false;
+        public FormAddRider(RaceManager rm)
         {
+            this.rm = rm;
             InitializeComponent();
             if (rdbIndividual.Checked)
             {
+                
                 lblTeamMembers.Visible = false;
                 cmbSelectTeam.Visible = false;
             }
@@ -24,30 +28,67 @@ namespace BikeRaceApp
 
         private void btnCreateTeam_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("If you create a team you will have to re-enter your data here",
-            "Warning",
-            MessageBoxButtons.YesNo,
-            MessageBoxIcon.Warning);
-            if (result == DialogResult.Yes)
+            //DialogResult result = MessageBox.Show("If you create a team you will have to re-enter your data here",
+            //"Warning",
+            //MessageBoxButtons.YesNo,
+            //MessageBoxIcon.Warning);
+            //if (result == DialogResult.Yes)
+            //{
+            //    this.Hide();
+            //    FormCreateTeam window = new FormCreateTeam(rm);
+            //    window.FormClosed += (s, args) => this.Close();
+            //    window.Show();
+            //}
+
+            rm.AddRider(txpName.Text, txpSurname.Text, txpSchool.Text, team);
+
+            if (chbRace1.Checked)
             {
-                this.Hide();
-                FormCreateTeam window = new FormCreateTeam();
-                window.FormClosed += (s, args) => this.Close();
-                window.Show();
+                rm.EnterRaces(0);
             }
+            if (chbRace2.Checked)
+            {
+                rm.EnterRaces(1);
+            }
+            if (chbRace3.Checked)
+            {
+                rm.EnterRaces(2);
+            }
+            if (chbRace4.Checked)
+            {
+                rm.EnterRaces(3);
+            }
+
+            MessageBox.Show("Rider Successfully Added \n"+rm.NewRiderSummary());
         }
-
-
+        
         private void rdbIndividual_CheckedChanged(object sender, EventArgs e)
         {
             lblTeamMembers.Visible = false;
             cmbSelectTeam.Visible = false;
+            chbRace1.Visible = true;
+            chbRace2.Visible = true;
+            chbRace3.Visible = true;
+            chbRace4.Visible = true;
+            team = false;
         }
-
         private void rdbTeam_CheckedChanged(object sender, EventArgs e)
         {
             lblTeamMembers.Visible = true;
             cmbSelectTeam.Visible = true;
+            chbRace1.Visible = false;
+            chbRace2.Visible = false;
+            chbRace3.Visible = false;
+            chbRace4.Visible = false;
+            team = true;
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormMainMenu window = new FormMainMenu(rm);
+            window.FormClosed += (s, args) => this.Close();
+            window.Show();
         }
     }
 }

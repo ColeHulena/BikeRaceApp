@@ -14,9 +14,11 @@ namespace BikeRaceApp
         [STAThread]
         static void Main()
         {
+            RaceManager rm = new RaceManager();
+            rm.LoadRiders();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMainMenu());
+            Application.Run(new FormMainMenu(rm));
         }
     }
 }

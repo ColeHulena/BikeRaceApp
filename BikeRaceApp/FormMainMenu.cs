@@ -12,8 +12,10 @@ namespace BikeRaceApp
 {
     public partial class FormMainMenu : Form
     {
-        public FormMainMenu()
+        RaceManager rm;
+        public FormMainMenu(RaceManager rm)
         {
+            this.rm = rm;
             InitializeComponent();
         }
 
@@ -29,8 +31,19 @@ namespace BikeRaceApp
 
         private void btnAddRider_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show("Are you competeing in a team?",
+            "Warning",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+                FormCreateTeam window1 = new FormCreateTeam(rm);
+                window1.FormClosed += (s, args) => this.Close();
+                window1.Show();
+            }
             this.Hide();
-            FormAddRider window = new FormAddRider();
+            FormAddRider window = new FormAddRider(rm);
             window.FormClosed += (s, args) => this.Close();
             window.Show();
         }
@@ -38,17 +51,24 @@ namespace BikeRaceApp
         private void btnCreateTeam_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormCreateTeam window = new FormCreateTeam();
+            FormCreateTeam window = new FormCreateTeam(rm);
             window.FormClosed += (s, args) => this.Close();
             window.Show();
         }
 
         private void btnEditRiderTeam_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            FormMessageBox window = new FormMessageBox("Would you like to a team or rider", "Team", "Rider");
-            window.FormClosed += (s, args) => this.Close();
-            window.Show();
+            DialogResult result = MessageBox.Show("Would you like to edit a riders Details", "Question",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+                FormManageRaceDetails window = new FormManageRaceDetails(rm);
+                window.FormClosed += (s, args) => this.Close();
+                window.Show();
+            }
+
         }
         
     }

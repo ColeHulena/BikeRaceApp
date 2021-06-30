@@ -12,9 +12,19 @@ namespace BikeRaceApp
 {
     public partial class FormCreateTeam : Form
     {
-        public FormCreateTeam()
+        RaceManager rm;
+        public FormCreateTeam(RaceManager rm)
         {
+            this.rm = rm;
             InitializeComponent();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormMainMenu window = new FormMainMenu(rm);
+            window.FormClosed += (s, args) => this.Close();
+            window.Show();
         }
     }
 }

@@ -39,11 +39,15 @@
             this.label5 = new System.Windows.Forms.Label();
             this.rdbIndividual = new System.Windows.Forms.RadioButton();
             this.rdbTeam = new System.Windows.Forms.RadioButton();
-            this.btnChooseRaces = new System.Windows.Forms.Button();
             this.cmbSelectTeam = new System.Windows.Forms.ComboBox();
             this.lblTeamMembers = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.btnCreateTeam = new System.Windows.Forms.Button();
+            this.btnAddRider = new System.Windows.Forms.Button();
+            this.chbRace1 = new System.Windows.Forms.CheckBox();
+            this.chbRace2 = new System.Windows.Forms.CheckBox();
+            this.chbRace3 = new System.Windows.Forms.CheckBox();
+            this.chbRace4 = new System.Windows.Forms.CheckBox();
+            this.btnBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txpName
@@ -156,19 +160,10 @@
             this.rdbTeam.UseVisualStyleBackColor = true;
             this.rdbTeam.CheckedChanged += new System.EventHandler(this.rdbTeam_CheckedChanged);
             // 
-            // btnChooseRaces
-            // 
-            this.btnChooseRaces.Location = new System.Drawing.Point(187, 398);
-            this.btnChooseRaces.Name = "btnChooseRaces";
-            this.btnChooseRaces.Size = new System.Drawing.Size(180, 40);
-            this.btnChooseRaces.TabIndex = 14;
-            this.btnChooseRaces.Text = "Choose Races";
-            this.btnChooseRaces.UseVisualStyleBackColor = true;
-            // 
             // cmbSelectTeam
             // 
             this.cmbSelectTeam.FormattingEnabled = true;
-            this.cmbSelectTeam.Location = new System.Drawing.Point(16, 266);
+            this.cmbSelectTeam.Location = new System.Drawing.Point(176, 285);
             this.cmbSelectTeam.Name = "cmbSelectTeam";
             this.cmbSelectTeam.Size = new System.Drawing.Size(121, 21);
             this.cmbSelectTeam.TabIndex = 15;
@@ -184,23 +179,85 @@
             this.lblTeamMembers.TabIndex = 16;
             this.lblTeamMembers.Text = "Team Members";
             // 
-            // btnCreateTeam
+            // btnAddRider
             // 
-            this.btnCreateTeam.Location = new System.Drawing.Point(1, 398);
-            this.btnCreateTeam.Name = "btnCreateTeam";
-            this.btnCreateTeam.Size = new System.Drawing.Size(180, 40);
-            this.btnCreateTeam.TabIndex = 17;
-            this.btnCreateTeam.Text = "Create Team";
-            this.btnCreateTeam.UseVisualStyleBackColor = true;
-            this.btnCreateTeam.Click += new System.EventHandler(this.btnCreateTeam_Click);
+            this.btnAddRider.Location = new System.Drawing.Point(177, 398);
+            this.btnAddRider.Name = "btnAddRider";
+            this.btnAddRider.Size = new System.Drawing.Size(180, 40);
+            this.btnAddRider.TabIndex = 17;
+            this.btnAddRider.Text = "Add Rider";
+            this.btnAddRider.UseVisualStyleBackColor = true;
+            this.btnAddRider.Click += new System.EventHandler(this.btnCreateTeam_Click);
+            // 
+            // chbRace1
+            // 
+            this.chbRace1.AutoSize = true;
+            this.chbRace1.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chbRace1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbRace1.Location = new System.Drawing.Point(16, 269);
+            this.chbRace1.Name = "chbRace1";
+            this.chbRace1.Size = new System.Drawing.Size(88, 28);
+            this.chbRace1.TabIndex = 18;
+            this.chbRace1.Text = "Race 1";
+            this.chbRace1.UseVisualStyleBackColor = true;
+            // 
+            // chbRace2
+            // 
+            this.chbRace2.AutoSize = true;
+            this.chbRace2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chbRace2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbRace2.Location = new System.Drawing.Point(16, 303);
+            this.chbRace2.Name = "chbRace2";
+            this.chbRace2.Size = new System.Drawing.Size(88, 28);
+            this.chbRace2.TabIndex = 19;
+            this.chbRace2.Text = "Race 2";
+            this.chbRace2.UseVisualStyleBackColor = true;
+            // 
+            // chbRace3
+            // 
+            this.chbRace3.AutoSize = true;
+            this.chbRace3.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chbRace3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbRace3.Location = new System.Drawing.Point(16, 337);
+            this.chbRace3.Name = "chbRace3";
+            this.chbRace3.Size = new System.Drawing.Size(88, 28);
+            this.chbRace3.TabIndex = 20;
+            this.chbRace3.Text = "Race 3";
+            this.chbRace3.UseVisualStyleBackColor = true;
+            // 
+            // chbRace4
+            // 
+            this.chbRace4.AutoSize = true;
+            this.chbRace4.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chbRace4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbRace4.Location = new System.Drawing.Point(16, 371);
+            this.chbRace4.Name = "chbRace4";
+            this.chbRace4.Size = new System.Drawing.Size(88, 28);
+            this.chbRace4.TabIndex = 21;
+            this.chbRace4.Text = "Race 4";
+            this.chbRace4.UseVisualStyleBackColor = true;
+            // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(12, 398);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(66, 40);
+            this.btnBack.TabIndex = 22;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // FormAddRider
             // 
             this.ClientSize = new System.Drawing.Size(368, 450);
-            this.Controls.Add(this.btnCreateTeam);
+            this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.chbRace4);
+            this.Controls.Add(this.chbRace3);
+            this.Controls.Add(this.chbRace2);
+            this.Controls.Add(this.chbRace1);
+            this.Controls.Add(this.btnAddRider);
             this.Controls.Add(this.lblTeamMembers);
             this.Controls.Add(this.cmbSelectTeam);
-            this.Controls.Add(this.btnChooseRaces);
             this.Controls.Add(this.rdbTeam);
             this.Controls.Add(this.rdbIndividual);
             this.Controls.Add(this.label5);
@@ -221,8 +278,6 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox txpName;
         private System.Windows.Forms.TextBox txpSurname;
         private System.Windows.Forms.TextBox txpSchool;
@@ -233,10 +288,14 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.RadioButton rdbIndividual;
         private System.Windows.Forms.RadioButton rdbTeam;
-        private System.Windows.Forms.Button btnChooseRaces;
         private System.Windows.Forms.ComboBox cmbSelectTeam;
         private System.Windows.Forms.Label lblTeamMembers;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.Button btnCreateTeam;
+        private System.Windows.Forms.Button btnAddRider;
+        private System.Windows.Forms.CheckBox chbRace1;
+        private System.Windows.Forms.CheckBox chbRace2;
+        private System.Windows.Forms.CheckBox chbRace3;
+        private System.Windows.Forms.CheckBox chbRace4;
+        private System.Windows.Forms.Button btnBack;
     }
 }

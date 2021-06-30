@@ -33,7 +33,7 @@
             this.btnEditRiderTeam = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnLeaderboards = new System.Windows.Forms.Button();
-            this.btnCreateTeam = new System.Windows.Forms.Button();
+            this.btnAddRiderToTeam = new System.Windows.Forms.Button();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
@@ -55,7 +55,7 @@
             this.btnEditRiderTeam.Name = "btnEditRiderTeam";
             this.btnEditRiderTeam.Size = new System.Drawing.Size(180, 40);
             this.btnEditRiderTeam.TabIndex = 2;
-            this.btnEditRiderTeam.Text = "Edit Rider or Team";
+            this.btnEditRiderTeam.Text = "Manage Rider or Team";
             this.btnEditRiderTeam.UseVisualStyleBackColor = true;
             this.btnEditRiderTeam.Click += new System.EventHandler(this.btnEditRiderTeam_Click);
             // 
@@ -77,15 +77,15 @@
             this.btnLeaderboards.Text = "Leaderboards";
             this.btnLeaderboards.UseVisualStyleBackColor = true;
             // 
-            // btnCreateTeam
+            // btnAddRiderToTeam
             // 
-            this.btnCreateTeam.Location = new System.Drawing.Point(88, 174);
-            this.btnCreateTeam.Name = "btnCreateTeam";
-            this.btnCreateTeam.Size = new System.Drawing.Size(180, 40);
-            this.btnCreateTeam.TabIndex = 5;
-            this.btnCreateTeam.Text = "Create Team";
-            this.btnCreateTeam.UseVisualStyleBackColor = true;
-            this.btnCreateTeam.Click += new System.EventHandler(this.btnCreateTeam_Click);
+            this.btnAddRiderToTeam.Location = new System.Drawing.Point(88, 174);
+            this.btnAddRiderToTeam.Name = "btnAddRiderToTeam";
+            this.btnAddRiderToTeam.Size = new System.Drawing.Size(180, 40);
+            this.btnAddRiderToTeam.TabIndex = 5;
+            this.btnAddRiderToTeam.Text = "Add Rider to Team";
+            this.btnAddRiderToTeam.UseVisualStyleBackColor = true;
+            this.btnAddRiderToTeam.Click += new System.EventHandler(this.btnCreateTeam_Click);
             // 
             // fileSystemWatcher1
             // 
@@ -108,7 +108,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(368, 450);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnCreateTeam);
+            this.Controls.Add(this.btnAddRiderToTeam);
             this.Controls.Add(this.btnLeaderboards);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnEditRiderTeam);
@@ -128,7 +128,7 @@
         private System.Windows.Forms.Button btnEditRiderTeam;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnLeaderboards;
-        private System.Windows.Forms.Button btnCreateTeam;
+        private System.Windows.Forms.Button btnAddRiderToTeam;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
         private System.Windows.Forms.Label label1;
     }
