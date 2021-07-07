@@ -13,17 +13,10 @@ namespace BikeRaceApp
     public partial class FormAddRider : Form
     {
         RaceManager rm;
-        bool team = false;
         public FormAddRider(RaceManager rm)
         {
             this.rm = rm;
             InitializeComponent();
-            if (rdbIndividual.Checked)
-            {
-                
-                lblTeamMembers.Visible = false;
-                cmbSelectTeam.Visible = false;
-            }
         }
 
         private void btnCreateTeam_Click(object sender, EventArgs e)
@@ -40,7 +33,7 @@ namespace BikeRaceApp
             //    window.Show();
             //}
 
-            rm.AddRider(txpName.Text, txpSurname.Text, txpSchool.Text, team);
+            rm.AddRider(txpName.Text, txpSurname.Text, txpSchool.Text);
 
             if (chbRace1.Checked)
             {
@@ -64,23 +57,17 @@ namespace BikeRaceApp
         
         private void rdbIndividual_CheckedChanged(object sender, EventArgs e)
         {
-            lblTeamMembers.Visible = false;
-            cmbSelectTeam.Visible = false;
             chbRace1.Visible = true;
             chbRace2.Visible = true;
             chbRace3.Visible = true;
             chbRace4.Visible = true;
-            team = false;
         }
         private void rdbTeam_CheckedChanged(object sender, EventArgs e)
         {
-            lblTeamMembers.Visible = true;
-            cmbSelectTeam.Visible = true;
             chbRace1.Visible = false;
             chbRace2.Visible = false;
             chbRace3.Visible = false;
             chbRace4.Visible = false;
-            team = true;
         }
 
         private void btnBack_Click(object sender, EventArgs e)

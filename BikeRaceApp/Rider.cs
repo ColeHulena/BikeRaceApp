@@ -11,17 +11,15 @@ namespace BikeRaceApp
         private string name;
         private string surname;
         private string school;
-        private bool team;
         private int id;
         private List<Race> races = new List<Race>() {new Race(), new Race(), new Race(), new Race()};
 
 
-        public Rider(string name,string surname, string school,bool team, int id)
+        public Rider(string name,string surname, string school, int id)
         {
             this.name = name;
             this.surname = surname;
             this.school = school;
-            this.team = team;
             this.id = id;
         }
 
@@ -32,15 +30,6 @@ namespace BikeRaceApp
         public string RiderSummary()
         {
             string summary = "Name: "+name+" "+surname+"\nSchool: "+school+"\n";
-
-            if (team == false)
-            {
-                summary += "Indiviual "+"\nRaces Entered: \n";
-            }
-            else
-            {
-                summary += "In Team"+"\nRaces Entered: \n";
-            }
 
             for (int i = 1; i < 5; i++)
             {
@@ -71,14 +60,24 @@ namespace BikeRaceApp
         {
             return school;
         }
-        public bool GetTeam()
-        {
-            return team;
-        }
         public int GetID()
         {
             return id;
         }
+        public List<bool> GetEntryStatus()
+        {
+            List<bool> entryStatus = new List<bool>();
+            foreach (var race in races)
+            {
+                entryStatus.Add(race.GetRaceStatus());
+            }
+            return entryStatus;
+        }
+        public void SetFinishTime(int raceIndex, string finishTime)
+        {
+            races[raceIndex].SetFinishTime(finishTime);
+        }
+
 
     }
 }

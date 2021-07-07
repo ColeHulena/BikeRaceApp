@@ -9,8 +9,8 @@ namespace BikeRaceApp
     class Race
     {
         bool raceStatus = false;
-        DateTime startTime;
-        DateTime finishTime;
+        string startTime = "15:30:00";
+        string finishTime;
 
         public Race()
         {
@@ -23,6 +23,10 @@ namespace BikeRaceApp
         public bool GetRaceStatus()
         {
             return raceStatus;
+        }
+        public void SetFinishTime(string finishTime)
+        {
+            this.finishTime = finishTime;
         }
     }
 }

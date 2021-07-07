@@ -32,6 +32,13 @@
             this.txbSearchBar = new System.Windows.Forms.TextBox();
             this.lvSearch = new System.Windows.Forms.ListView();
             this.btnBack = new System.Windows.Forms.Button();
+            this.dtpFinishTime = new System.Windows.Forms.DateTimePicker();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.rbtnRace1 = new System.Windows.Forms.RadioButton();
+            this.rbtnRace2 = new System.Windows.Forms.RadioButton();
+            this.rbtnRace3 = new System.Windows.Forms.RadioButton();
+            this.rbtnRace4 = new System.Windows.Forms.RadioButton();
+            this.lblFinishTime = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblSearch
@@ -45,7 +52,7 @@
             // 
             // txbSearchBar
             // 
-            this.txbSearchBar.Location = new System.Drawing.Point(154, 49);
+            this.txbSearchBar.Location = new System.Drawing.Point(76, 46);
             this.txbSearchBar.Name = "txbSearchBar";
             this.txbSearchBar.Size = new System.Drawing.Size(100, 20);
             this.txbSearchBar.TabIndex = 1;
@@ -56,9 +63,10 @@
             this.lvSearch.HideSelection = false;
             this.lvSearch.Location = new System.Drawing.Point(57, 86);
             this.lvSearch.Name = "lvSearch";
-            this.lvSearch.Size = new System.Drawing.Size(606, 274);
+            this.lvSearch.Size = new System.Drawing.Size(606, 171);
             this.lvSearch.TabIndex = 2;
             this.lvSearch.UseCompatibleStateImageBehavior = false;
+            this.lvSearch.SelectedIndexChanged += new System.EventHandler(this.lvSearch_SelectedIndexChanged);
             // 
             // btnBack
             // 
@@ -70,11 +78,94 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // dtpFinishTime
+            // 
+            this.dtpFinishTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpFinishTime.Location = new System.Drawing.Point(124, 351);
+            this.dtpFinishTime.Name = "dtpFinishTime";
+            this.dtpFinishTime.ShowUpDown = true;
+            this.dtpFinishTime.Size = new System.Drawing.Size(200, 20);
+            this.dtpFinishTime.TabIndex = 25;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(544, 398);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(119, 34);
+            this.btnUpdate.TabIndex = 26;
+            this.btnUpdate.Text = "Update Race Result";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // rbtnRace1
+            // 
+            this.rbtnRace1.AutoSize = true;
+            this.rbtnRace1.Location = new System.Drawing.Point(102, 294);
+            this.rbtnRace1.Name = "rbtnRace1";
+            this.rbtnRace1.Size = new System.Drawing.Size(60, 17);
+            this.rbtnRace1.TabIndex = 27;
+            this.rbtnRace1.TabStop = true;
+            this.rbtnRace1.Text = "Race 1";
+            this.rbtnRace1.UseVisualStyleBackColor = true;
+            this.rbtnRace1.CheckedChanged += new System.EventHandler(this.rbtnRace1_CheckedChanged);
+            // 
+            // rbtnRace2
+            // 
+            this.rbtnRace2.AutoSize = true;
+            this.rbtnRace2.Location = new System.Drawing.Point(221, 294);
+            this.rbtnRace2.Name = "rbtnRace2";
+            this.rbtnRace2.Size = new System.Drawing.Size(60, 17);
+            this.rbtnRace2.TabIndex = 28;
+            this.rbtnRace2.TabStop = true;
+            this.rbtnRace2.Text = "Race 2";
+            this.rbtnRace2.UseVisualStyleBackColor = true;
+            this.rbtnRace2.CheckedChanged += new System.EventHandler(this.rbtnRace2_CheckedChanged);
+            // 
+            // rbtnRace3
+            // 
+            this.rbtnRace3.AutoSize = true;
+            this.rbtnRace3.Location = new System.Drawing.Point(349, 294);
+            this.rbtnRace3.Name = "rbtnRace3";
+            this.rbtnRace3.Size = new System.Drawing.Size(60, 17);
+            this.rbtnRace3.TabIndex = 29;
+            this.rbtnRace3.TabStop = true;
+            this.rbtnRace3.Text = "Race 3";
+            this.rbtnRace3.UseVisualStyleBackColor = true;
+            this.rbtnRace3.CheckedChanged += new System.EventHandler(this.rbtnRace3_CheckedChanged);
+            // 
+            // rbtnRace4
+            // 
+            this.rbtnRace4.AutoSize = true;
+            this.rbtnRace4.Location = new System.Drawing.Point(483, 294);
+            this.rbtnRace4.Name = "rbtnRace4";
+            this.rbtnRace4.Size = new System.Drawing.Size(60, 17);
+            this.rbtnRace4.TabIndex = 30;
+            this.rbtnRace4.TabStop = true;
+            this.rbtnRace4.Text = "Race 4";
+            this.rbtnRace4.UseVisualStyleBackColor = true;
+            this.rbtnRace4.CheckedChanged += new System.EventHandler(this.rbtnRace4_CheckedChanged);
+            // 
+            // lblFinishTime
+            // 
+            this.lblFinishTime.AutoSize = true;
+            this.lblFinishTime.Location = new System.Drawing.Point(35, 351);
+            this.lblFinishTime.Name = "lblFinishTime";
+            this.lblFinishTime.Size = new System.Drawing.Size(60, 13);
+            this.lblFinishTime.TabIndex = 31;
+            this.lblFinishTime.Text = "Finish Time";
+            // 
             // FormManageRaceDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(695, 450);
+            this.Controls.Add(this.lblFinishTime);
+            this.Controls.Add(this.rbtnRace4);
+            this.Controls.Add(this.rbtnRace3);
+            this.Controls.Add(this.rbtnRace2);
+            this.Controls.Add(this.rbtnRace1);
+            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.dtpFinishTime);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lvSearch);
             this.Controls.Add(this.txbSearchBar);
@@ -92,5 +183,12 @@
         private System.Windows.Forms.TextBox txbSearchBar;
         private System.Windows.Forms.ListView lvSearch;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.DateTimePicker dtpFinishTime;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.RadioButton rbtnRace1;
+        private System.Windows.Forms.RadioButton rbtnRace2;
+        private System.Windows.Forms.RadioButton rbtnRace3;
+        private System.Windows.Forms.RadioButton rbtnRace4;
+        private System.Windows.Forms.Label lblFinishTime;
     }
 }

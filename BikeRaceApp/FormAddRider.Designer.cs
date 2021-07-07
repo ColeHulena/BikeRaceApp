@@ -36,11 +36,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.rdbIndividual = new System.Windows.Forms.RadioButton();
-            this.rdbTeam = new System.Windows.Forms.RadioButton();
-            this.cmbSelectTeam = new System.Windows.Forms.ComboBox();
-            this.lblTeamMembers = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.btnAddRider = new System.Windows.Forms.Button();
             this.chbRace1 = new System.Windows.Forms.CheckBox();
@@ -123,62 +118,6 @@
             this.label4.Text = "Rider School:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 229);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(101, 24);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Entry Type";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // rdbIndividual
-            // 
-            this.rdbIndividual.AutoSize = true;
-            this.rdbIndividual.Checked = true;
-            this.rdbIndividual.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbIndividual.Location = new System.Drawing.Point(119, 227);
-            this.rdbIndividual.Name = "rdbIndividual";
-            this.rdbIndividual.Size = new System.Drawing.Size(107, 28);
-            this.rdbIndividual.TabIndex = 12;
-            this.rdbIndividual.TabStop = true;
-            this.rdbIndividual.Text = "Individual";
-            this.rdbIndividual.UseVisualStyleBackColor = true;
-            this.rdbIndividual.CheckedChanged += new System.EventHandler(this.rdbIndividual_CheckedChanged);
-            // 
-            // rdbTeam
-            // 
-            this.rdbTeam.AutoSize = true;
-            this.rdbTeam.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbTeam.Location = new System.Drawing.Point(228, 227);
-            this.rdbTeam.Name = "rdbTeam";
-            this.rdbTeam.Size = new System.Drawing.Size(77, 28);
-            this.rdbTeam.TabIndex = 13;
-            this.rdbTeam.Text = "Team";
-            this.rdbTeam.UseVisualStyleBackColor = true;
-            this.rdbTeam.CheckedChanged += new System.EventHandler(this.rdbTeam_CheckedChanged);
-            // 
-            // cmbSelectTeam
-            // 
-            this.cmbSelectTeam.FormattingEnabled = true;
-            this.cmbSelectTeam.Location = new System.Drawing.Point(176, 285);
-            this.cmbSelectTeam.Name = "cmbSelectTeam";
-            this.cmbSelectTeam.Size = new System.Drawing.Size(121, 21);
-            this.cmbSelectTeam.TabIndex = 15;
-            this.cmbSelectTeam.Text = "Select Team";
-            // 
-            // lblTeamMembers
-            // 
-            this.lblTeamMembers.AutoSize = true;
-            this.lblTeamMembers.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.lblTeamMembers.Location = new System.Drawing.Point(173, 269);
-            this.lblTeamMembers.Name = "lblTeamMembers";
-            this.lblTeamMembers.Size = new System.Drawing.Size(80, 13);
-            this.lblTeamMembers.TabIndex = 16;
-            this.lblTeamMembers.Text = "Team Members";
-            // 
             // btnAddRider
             // 
             this.btnAddRider.Location = new System.Drawing.Point(177, 398);
@@ -194,7 +133,7 @@
             this.chbRace1.AutoSize = true;
             this.chbRace1.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.chbRace1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbRace1.Location = new System.Drawing.Point(16, 269);
+            this.chbRace1.Location = new System.Drawing.Point(16, 232);
             this.chbRace1.Name = "chbRace1";
             this.chbRace1.Size = new System.Drawing.Size(88, 28);
             this.chbRace1.TabIndex = 18;
@@ -206,7 +145,7 @@
             this.chbRace2.AutoSize = true;
             this.chbRace2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.chbRace2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbRace2.Location = new System.Drawing.Point(16, 303);
+            this.chbRace2.Location = new System.Drawing.Point(16, 266);
             this.chbRace2.Name = "chbRace2";
             this.chbRace2.Size = new System.Drawing.Size(88, 28);
             this.chbRace2.TabIndex = 19;
@@ -218,7 +157,7 @@
             this.chbRace3.AutoSize = true;
             this.chbRace3.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.chbRace3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbRace3.Location = new System.Drawing.Point(16, 337);
+            this.chbRace3.Location = new System.Drawing.Point(16, 300);
             this.chbRace3.Name = "chbRace3";
             this.chbRace3.Size = new System.Drawing.Size(88, 28);
             this.chbRace3.TabIndex = 20;
@@ -230,7 +169,7 @@
             this.chbRace4.AutoSize = true;
             this.chbRace4.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.chbRace4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbRace4.Location = new System.Drawing.Point(16, 371);
+            this.chbRace4.Location = new System.Drawing.Point(16, 334);
             this.chbRace4.Name = "chbRace4";
             this.chbRace4.Size = new System.Drawing.Size(88, 28);
             this.chbRace4.TabIndex = 21;
@@ -256,11 +195,6 @@
             this.Controls.Add(this.chbRace2);
             this.Controls.Add(this.chbRace1);
             this.Controls.Add(this.btnAddRider);
-            this.Controls.Add(this.lblTeamMembers);
-            this.Controls.Add(this.cmbSelectTeam);
-            this.Controls.Add(this.rdbTeam);
-            this.Controls.Add(this.rdbIndividual);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -285,11 +219,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.RadioButton rdbIndividual;
-        private System.Windows.Forms.RadioButton rdbTeam;
-        private System.Windows.Forms.ComboBox cmbSelectTeam;
-        private System.Windows.Forms.Label lblTeamMembers;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button btnAddRider;
         private System.Windows.Forms.CheckBox chbRace1;

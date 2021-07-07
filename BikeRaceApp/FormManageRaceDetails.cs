@@ -14,12 +14,18 @@ namespace BikeRaceApp
     {
         RaceManager rm;
         private DataView dv;
+        int tempID = -1;
+        int raceIndex = -1;
 
         public FormManageRaceDetails(RaceManager rm)
         {
             this.rm = rm;
             InitializeComponent();
-
+            dtpFinishTime.Enabled = false;
+            rbtnRace1.Enabled = false;
+            rbtnRace2.Enabled = false;
+            rbtnRace3.Enabled = false;
+            rbtnRace4.Enabled = false;
             //populate table
             List<Rider> tempriders = rm.GetRiders();
 
@@ -31,7 +37,6 @@ namespace BikeRaceApp
             lvSearch.Columns.Add("Name", 150);
             lvSearch.Columns.Add("Surname", 150);
             lvSearch.Columns.Add("School", 150);
-            lvSearch.Columns.Add("Team", 150);
             lvSearch.Columns.Add("ID Num", 150);
 
             //Fill Data Table
@@ -45,7 +50,7 @@ namespace BikeRaceApp
             lvSearch.Items.Clear();
             foreach (DataRow row in dv.ToTable().Rows)
             {
-                lvSearch.Items.Add(new ListViewItem(new string[] { row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString() }));
+                lvSearch.Items.Add(new ListViewItem(new string[] { row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString() }));
             }
         }
 
@@ -61,6 +66,64 @@ namespace BikeRaceApp
             FormMainMenu window = new FormMainMenu(rm);
             window.FormClosed += (s, args) => this.Close();
             window.Show();
+        }
+
+        private void lvSearch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            if (lvSearch.SelectedItems.Count > 0)
+            {
+                ListViewItem rowData = lvSearch.SelectedItems[0];
+                tempID = Convert.ToInt32(rowData.SubItems[3].Text);
+            }
+            List<bool> entryStatus = rm.GetRiderEntryStatus(tempID);
+
+            rbtnRace1.Enabled = entryStatus[0];
+            rbtnRace2.Enabled = entryStatus[1];
+            rbtnRace3.Enabled = entryStatus[2];
+            rbtnRace4.Enabled = entryStatus[3];
+            
+        }
+
+        private void rbtnRace1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!dtpFinishTime.Enabled)
+            {
+                dtpFinishTime.Enabled = true;
+            }
+            raceIndex = 0;
+        }
+
+        private void rbtnRace2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!dtpFinishTime.Enabled)
+            {
+                dtpFinishTime.Enabled = true;
+            }
+            raceIndex = 1;
+        }
+
+        private void rbtnRace3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!dtpFinishTime.Enabled)
+            {
+                dtpFinishTime.Enabled = true;
+            }
+            raceIndex = 2;
+        }
+
+        private void rbtnRace4_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!dtpFinishTime.Enabled)
+            {
+                dtpFinishTime.Enabled = true;
+            }
+            raceIndex = 3;
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            rm.SetRiderFinishTime(tempID, raceIndex, dtpFinishTime.Text);
         }
     }
 }

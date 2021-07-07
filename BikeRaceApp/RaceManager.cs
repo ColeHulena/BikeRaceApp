@@ -25,25 +25,24 @@ namespace BikeRaceApp
             dt.Columns.Add("Name");
             dt.Columns.Add("Surname");
             dt.Columns.Add("School");
-            dt.Columns.Add("Team");
             dt.Columns.Add("ID");
             foreach (var rider in riders)
             {
-                dt.Rows.Add(rider.GetName(),rider.GetSurname(),rider.GetSchool(),rider.GetTeam(),rider.GetID());
+                dt.Rows.Add(rider.GetName(),rider.GetSurname(),rider.GetSchool(),rider.GetID());
             }
 
             return dt;
         }
 
-        public void AddRider(string name, string surname, string school, bool team)
+        public void AddRider(string name, string surname, string school)
         {
             //Append to text file
-            riders.Add(new Rider(name, surname, school, team, riders.Count + 1));
+            riders.Add(new Rider(name, surname, school, riders.Count + 1));
         }        
-        public void AddRider(string name, string surname, string school, bool team, int id)
+        public void AddRider(string name, string surname, string school, int id)
         {
             //Append to text file
-            riders.Add(new Rider(name, surname, school, team, id));
+            riders.Add(new Rider(name, surname, school, id));
         }
 
         
@@ -62,11 +61,10 @@ namespace BikeRaceApp
                 string name = tokens[0];
                 string surname = tokens[1];
                 string school = tokens[2];
-                bool team = bool.Parse(tokens[3]);
-                int id = Convert.ToInt32(tokens[4]);
-                AddRider(name, surname, school, team, id);
+                int id = Convert.ToInt32(tokens[3]);
+                AddRider(name, surname, school, id);
 
-                string[] entryStatusTxt = tokens[5].Split('#');
+                string[] entryStatusTxt = tokens[4].Split('#');
                 for (int i = 0; i<entryStatusTxt.Length; i++)
                 {
                     if (entryStatusTxt[i] == "true")
@@ -76,6 +74,11 @@ namespace BikeRaceApp
                 }
             }
         }
+        public void SetRiderFinishTime(int riderID, int raceIndex, string finishTime)
+        {
+            riders[riderID].SetFinishTime(raceIndex, finishTime);
+        }
+
         public string NewRiderSummary()
         {
             return riders[riders.Count - 1].RiderSummary();
@@ -85,6 +88,12 @@ namespace BikeRaceApp
         {
             return riders;
         }
+        public List<bool> GetRiderEntryStatus(int riderID)
+        {
+            return riders[riderID].GetEntryStatus();
+        }
+
+        
 
     }
 }
