@@ -93,6 +93,57 @@ namespace BikeRaceApp
             return riders[riderID].GetEntryStatus();
         }
 
+        public int GetRaceTime(int riderIndex, int raceID)
+        {
+            return riders[riderIndex].GetCalculateRaceTime(raceID);
+        }
+        public string GenerateLeardboard(int raceIndex)
+        {
+            List<Rider> tempriders = new List<Rider>();
+            foreach (Rider rider in riders)
+            {
+                if (rider.CheckEntryStatus(raceIndex))
+                {
+                    tempriders.Add(rider);
+                }
+            }
+            tempriders = SortRiderByRaceTime(tempriders, raceIndex);
+            string leaderboard = "";
+            int pos = 0;
+            foreach (Rider rider in tempriders)
+            {
+                leaderboard += (pos + 1) + ". " + rider.GetName() + " " + rider.GetSurname() + "\t" + rider.GetCalculateRaceTime(raceIndex)+"\n"; 
+            }
+            return leaderboard;
+        }
+
+
+        public List<Rider> SortRiderByRaceTime(List<Rider> riders, int raceIndex)
+        {
+            for (int i = 0; i < riders.Count - 1; i++)
+            {
+                // pos will be used store the index of the highest value greather than the value referenced by index
+                //  it will start start by storing i as i potentially could be the highest value 
+                int pos = i;
+
+                // inner loop will loop through the all elemnts after i and store the index of the highest value
+                for (int j = i + 1; j < riders.Count; j++)
+                {
+                    if (riders[pos].GetCalculateRaceTime(raceIndex) < riders[j].GetCalculateRaceTime(raceIndex))
+                    {
+                        pos = j;
+                    }
+                }
+                //swoping logic to swop cost[i] with the highest found cost i.e cost[pos]
+                Rider riderTemp = riders[i];
+                riders[i] = riders[pos];
+                riders[pos] = riderTemp;
+
+            }
+
+            return riders;
+        }
+
         
 
     }

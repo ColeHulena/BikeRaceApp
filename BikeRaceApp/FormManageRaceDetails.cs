@@ -39,6 +39,10 @@ namespace BikeRaceApp
             lvSearch.Columns.Add("School", 150);
             lvSearch.Columns.Add("ID Num", 150);
 
+            //Set datetime picker format
+            dtpFinishTime.Format = DateTimePickerFormat.Custom;
+            dtpFinishTime.CustomFormat = "HH:mm:ss";
+
             //Fill Data Table
             dv = new DataView(this.rm.FillDataTable());
             PopulateListView(dv);
@@ -74,7 +78,7 @@ namespace BikeRaceApp
             if (lvSearch.SelectedItems.Count > 0)
             {
                 ListViewItem rowData = lvSearch.SelectedItems[0];
-                tempID = Convert.ToInt32(rowData.SubItems[3].Text);
+                tempID = Convert.ToInt32(rowData.SubItems[3].Text) - 1;
             }
             List<bool> entryStatus = rm.GetRiderEntryStatus(tempID);
 
@@ -124,6 +128,15 @@ namespace BikeRaceApp
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             rm.SetRiderFinishTime(tempID, raceIndex, dtpFinishTime.Text);
+            lblRaceTimeInput.Text = rm.GetRaceTime(tempID, raceIndex)+" Seconds";
         }
+
+
+
+        private void lblRaceTimeInput_Click(object sender, EventArgs e)
+        {
+            
+        }
+
     }
 }

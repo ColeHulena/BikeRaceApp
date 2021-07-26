@@ -39,6 +39,8 @@
             this.rbtnRace3 = new System.Windows.Forms.RadioButton();
             this.rbtnRace4 = new System.Windows.Forms.RadioButton();
             this.lblFinishTime = new System.Windows.Forms.Label();
+            this.lblRaceTime = new System.Windows.Forms.Label();
+            this.lblRaceTimeInput = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblSearch
@@ -81,7 +83,7 @@
             // dtpFinishTime
             // 
             this.dtpFinishTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpFinishTime.Location = new System.Drawing.Point(124, 351);
+            this.dtpFinishTime.Location = new System.Drawing.Point(102, 345);
             this.dtpFinishTime.Name = "dtpFinishTime";
             this.dtpFinishTime.ShowUpDown = true;
             this.dtpFinishTime.Size = new System.Drawing.Size(200, 20);
@@ -154,11 +156,32 @@
             this.lblFinishTime.TabIndex = 31;
             this.lblFinishTime.Text = "Finish Time";
             // 
+            // lblRaceTime
+            // 
+            this.lblRaceTime.AutoSize = true;
+            this.lblRaceTime.Location = new System.Drawing.Point(359, 351);
+            this.lblRaceTime.Name = "lblRaceTime";
+            this.lblRaceTime.Size = new System.Drawing.Size(62, 13);
+            this.lblRaceTime.TabIndex = 32;
+            this.lblRaceTime.Text = "Race Time:";
+            // 
+            // lblRaceTimeInput
+            // 
+            this.lblRaceTimeInput.AutoSize = true;
+            this.lblRaceTimeInput.Location = new System.Drawing.Point(424, 352);
+            this.lblRaceTimeInput.Name = "lblRaceTimeInput";
+            this.lblRaceTimeInput.Size = new System.Drawing.Size(58, 13);
+            this.lblRaceTimeInput.TabIndex = 33;
+            this.lblRaceTimeInput.Text = "0 Seconds";
+            this.lblRaceTimeInput.Click += new System.EventHandler(this.lblRaceTimeInput_Click);
+            // 
             // FormManageRaceDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(695, 450);
+            this.Controls.Add(this.lblRaceTimeInput);
+            this.Controls.Add(this.lblRaceTime);
             this.Controls.Add(this.lblFinishTime);
             this.Controls.Add(this.rbtnRace4);
             this.Controls.Add(this.rbtnRace3);
@@ -190,5 +213,7 @@
         private System.Windows.Forms.RadioButton rbtnRace3;
         private System.Windows.Forms.RadioButton rbtnRace4;
         private System.Windows.Forms.Label lblFinishTime;
+        private System.Windows.Forms.Label lblRaceTime;
+        private System.Windows.Forms.Label lblRaceTimeInput;
     }
 }

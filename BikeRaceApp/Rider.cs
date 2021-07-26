@@ -73,9 +73,18 @@ namespace BikeRaceApp
             }
             return entryStatus;
         }
+        public bool CheckEntryStatus(int raceIndex)
+        {
+            return races[raceIndex].GetRaceStatus();
+        }
+
         public void SetFinishTime(int raceIndex, string finishTime)
         {
             races[raceIndex].SetFinishTime(finishTime);
+        }
+        public int GetCalculateRaceTime(int raceID)
+        {
+            return races[raceID].CalculateRaceTime();
         }
 
 
