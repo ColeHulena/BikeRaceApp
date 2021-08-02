@@ -56,7 +56,10 @@ namespace BikeRaceApp
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            FormSearchRider window = new FormSearchRider(rm);
+            window.FormClosed += (s, args) => this.Close();
+            window.Show();
         }
     }
 }
