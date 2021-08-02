@@ -5,17 +5,18 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace BikeRaceApp
 {
     public class RaceManager
     {
-        
+
         List<Rider> riders = new List<Rider>();
 
         public RaceManager()
         {
-            
+
         }
 
         public DataTable FillDataTable()
@@ -28,7 +29,7 @@ namespace BikeRaceApp
             dt.Columns.Add("ID");
             foreach (var rider in riders)
             {
-                dt.Rows.Add(rider.GetName(),rider.GetSurname(),rider.GetSchool(),rider.GetID());
+                dt.Rows.Add(rider.GetName(), rider.GetSurname(), rider.GetSchool(), rider.GetID());
             }
 
             return dt;
@@ -38,14 +39,14 @@ namespace BikeRaceApp
         {
             //Append to text file
             riders.Add(new Rider(name, surname, school, riders.Count + 1));
-        }        
+        }
         public void AddRider(string name, string surname, string school, int id)
         {
             //Append to text file
             riders.Add(new Rider(name, surname, school, id));
         }
 
-        
+
         public void EnterRaces(int raceNumber)
         {
             riders[riders.Count - 1].EnterRace(raceNumber);
@@ -65,11 +66,19 @@ namespace BikeRaceApp
                 AddRider(name, surname, school, id);
 
                 string[] entryStatusTxt = tokens[4].Split('#');
-                for (int i = 0; i<entryStatusTxt.Length; i++)
+                for (int i = 0; i < entryStatusTxt.Length; i++)
                 {
-                    if (entryStatusTxt[i] == "true")
+                    if (entryStatusTxt[i] == "True")
                     {
                         EnterRaces(i);
+                    }
+                }
+                string[] finishTimesTxt = tokens[5].Split('#');
+                for (int i = 0; i < finishTimesTxt.Length - 1; i++)
+                {
+                    if (!finishTimesTxt[i].Equals("NA"))
+                    {
+                        riders[riders.Count - 1].SetFinishTime(i, finishTimesTxt[i]);
                     }
                 }
             }
@@ -93,13 +102,14 @@ namespace BikeRaceApp
             return riders[riderID].GetEntryStatus();
         }
 
-        public int GetRaceTime(int riderIndex, int raceID)
+        public string GetRaceTime(int riderIndex, int raceID)
         {
             return riders[riderIndex].GetCalculateRaceTime(raceID);
         }
-        public string GenerateLeardboard(int raceIndex)
+        public string[] GenerateLeardboard(int raceIndex)
         {
             List<Rider> tempriders = new List<Rider>();
+            string[] leaderboard = new string[2];
             foreach (Rider rider in riders)
             {
                 if (rider.CheckEntryStatus(raceIndex))
@@ -107,12 +117,24 @@ namespace BikeRaceApp
                     tempriders.Add(rider);
                 }
             }
+            //Testing / Debugging
+            //MessageBox.Show(tempriders.Count + "");
             tempriders = SortRiderByRaceTime(tempriders, raceIndex);
-            string leaderboard = "";
+            leaderboard[0] = "";
+            leaderboard[1] = "";
             int pos = 0;
+            //Testing / Debugging
+            //MessageBox.Show(tempriders.Count+"");
             foreach (Rider rider in tempriders)
             {
-                leaderboard += (pos + 1) + ". " + rider.GetName() + " " + rider.GetSurname() + "\t" + rider.GetCalculateRaceTime(raceIndex)+"\n"; 
+                string raceTime = rider.GetCalculateRaceTime(raceIndex);
+                if (raceTime.Equals("9999999"))
+                {
+                    raceTime = "NA";
+                }
+                leaderboard[0] += (pos + 1) + ". " + rider.GetName() + " " + rider.GetSurname() + "\n";
+                leaderboard[1] += raceTime + "\n";
+                pos++;
             }
             return leaderboard;
         }
@@ -129,7 +151,7 @@ namespace BikeRaceApp
                 // inner loop will loop through the all elemnts after i and store the index of the highest value
                 for (int j = i + 1; j < riders.Count; j++)
                 {
-                    if (riders[pos].GetCalculateRaceTime(raceIndex) < riders[j].GetCalculateRaceTime(raceIndex))
+                    if (Convert.ToInt32(riders[pos].GetCalculateRaceTime(raceIndex)) > Convert.ToInt32(riders[j].GetCalculateRaceTime(raceIndex)))
                     {
                         pos = j;
                     }
@@ -144,7 +166,21 @@ namespace BikeRaceApp
             return riders;
         }
 
-        
+        public void SaveRiders()
+        {
+            string allRiders = "";
+
+            foreach (Rider rider in riders)
+            {
+                allRiders += rider.StoreRider() + "\n";
+            }
+            File.WriteAllText("Riders.txt", allRiders);
+        }
+        public string GetFinishTime(int riderIndex, int raceIndex)
+        {
+            return riders[riderIndex].GetFinishTime(raceIndex);
+        }
+
 
     }
 }

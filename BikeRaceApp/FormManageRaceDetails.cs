@@ -21,6 +21,8 @@ namespace BikeRaceApp
         {
             this.rm = rm;
             InitializeComponent();
+            dtpFinishTime.Value = DateTime.ParseExact("15:30:00", "HH:mm:ss",
+                                       System.Globalization.CultureInfo.InvariantCulture);
             dtpFinishTime.Enabled = false;
             rbtnRace1.Enabled = false;
             rbtnRace2.Enabled = false;
@@ -96,6 +98,13 @@ namespace BikeRaceApp
                 dtpFinishTime.Enabled = true;
             }
             raceIndex = 0;
+            if (!rm.GetRaceTime(tempID,raceIndex).Equals("9999999") )
+            {
+                dtpFinishTime.Value = DateTime.ParseExact(rm.GetFinishTime(tempID, raceIndex), "HH:mm:ss",
+                                       System.Globalization.CultureInfo.InvariantCulture);
+                lblRaceTimeInput.Text = rm.GetRaceTime(tempID, raceIndex) + " Seconds";
+
+            }
         }
 
         private void rbtnRace2_CheckedChanged(object sender, EventArgs e)
@@ -105,6 +114,13 @@ namespace BikeRaceApp
                 dtpFinishTime.Enabled = true;
             }
             raceIndex = 1;
+            if (!rm.GetRaceTime(tempID, raceIndex).Equals("NA"))
+            {
+                dtpFinishTime.Value = DateTime.ParseExact(rm.GetFinishTime(tempID, raceIndex), "HH:mm:ss",
+                                       System.Globalization.CultureInfo.InvariantCulture);
+                lblRaceTimeInput.Text = rm.GetRaceTime(tempID, raceIndex) + " Seconds";
+
+            }
         }
 
         private void rbtnRace3_CheckedChanged(object sender, EventArgs e)
@@ -114,6 +130,13 @@ namespace BikeRaceApp
                 dtpFinishTime.Enabled = true;
             }
             raceIndex = 2;
+            if (!rm.GetRaceTime(tempID, raceIndex).Equals("NA"))
+            {
+                dtpFinishTime.Value = DateTime.ParseExact(rm.GetFinishTime(tempID, raceIndex), "HH:mm:ss",
+                                       System.Globalization.CultureInfo.InvariantCulture);
+                lblRaceTimeInput.Text = rm.GetRaceTime(tempID, raceIndex) + " Seconds";
+
+            }
         }
 
         private void rbtnRace4_CheckedChanged(object sender, EventArgs e)
@@ -123,12 +146,20 @@ namespace BikeRaceApp
                 dtpFinishTime.Enabled = true;
             }
             raceIndex = 3;
+            if (!rm.GetRaceTime(tempID, raceIndex).Equals("NA"))
+            {
+                dtpFinishTime.Value = DateTime.ParseExact(rm.GetFinishTime(tempID, raceIndex), "HH:mm:ss",
+                                       System.Globalization.CultureInfo.InvariantCulture);
+                lblRaceTimeInput.Text = rm.GetRaceTime(tempID, raceIndex) + " Seconds";
+
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             rm.SetRiderFinishTime(tempID, raceIndex, dtpFinishTime.Text);
             lblRaceTimeInput.Text = rm.GetRaceTime(tempID, raceIndex)+" Seconds";
+            rm.SaveRiders();
         }
 
 

@@ -66,6 +66,7 @@
             this.btnSearch.TabIndex = 3;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnLeaderboards
             // 
@@ -75,6 +76,7 @@
             this.btnLeaderboards.TabIndex = 4;
             this.btnLeaderboards.Text = "Leaderboards";
             this.btnLeaderboards.UseVisualStyleBackColor = true;
+            this.btnLeaderboards.Click += new System.EventHandler(this.btnLeaderboards_Click);
             // 
             // fileSystemWatcher1
             // 

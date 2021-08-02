@@ -48,6 +48,25 @@ namespace BikeRaceApp
             return summary;
         }
 
+        public string StoreRider()
+        {
+            string storeRider = name + "," + surname + "," + school + ","+id+",";
+            string rStatus = "";
+            string fTime = "";
+            foreach (Race race in races)
+            {
+                rStatus += race.GetRaceStatus() + "#";
+                
+                fTime += race.GetFinishTime() + "#";
+            }
+
+            rStatus += ",";
+
+            storeRider += rStatus + fTime;
+            
+            return storeRider;
+        }
+
         public string GetName()
         {
             return name;
@@ -82,9 +101,13 @@ namespace BikeRaceApp
         {
             races[raceIndex].SetFinishTime(finishTime);
         }
-        public int GetCalculateRaceTime(int raceID)
+        public string GetCalculateRaceTime(int raceID)
         {
             return races[raceID].CalculateRaceTime();
+        }
+        public string GetFinishTime(int raceIndex)
+        {
+            return races[raceIndex].GetFinishTime();
         }
 
 

@@ -45,6 +45,18 @@ namespace BikeRaceApp
             window.Show();
 
         }
-        
+
+        private void btnLeaderboards_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormLeaderBoard window = new FormLeaderBoard(rm);
+            window.FormClosed += (s, args) => this.Close();
+            window.Show();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

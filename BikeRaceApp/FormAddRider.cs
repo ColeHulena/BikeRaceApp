@@ -52,6 +52,8 @@ namespace BikeRaceApp
                 rm.EnterRaces(3);
             }
 
+            rm.SaveRiders();
+
             MessageBox.Show("Rider Successfully Added \n"+rm.NewRiderSummary());
         }
         
