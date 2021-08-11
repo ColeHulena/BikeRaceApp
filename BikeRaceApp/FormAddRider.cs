@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -21,40 +22,37 @@ namespace BikeRaceApp
 
         private void btnCreateTeam_Click(object sender, EventArgs e)
         {
-            //DialogResult result = MessageBox.Show("If you create a team you will have to re-enter your data here",
-            //"Warning",
-            //MessageBoxButtons.YesNo,
-            //MessageBoxIcon.Warning);
-            //if (result == DialogResult.Yes)
-            //{
-            //    this.Hide();
-            //    FormCreateTeam window = new FormCreateTeam(rm);
-            //    window.FormClosed += (s, args) => this.Close();
-            //    window.Show();
-            //}
-
-            rm.AddRider(txpName.Text, txpSurname.Text, txpSchool.Text);
-
-            if (chbRace1.Checked)
+            if (Regex.IsMatch((txpName.Text + txpSurname + txpSchool), "^[a-zA-Z]*$"))
             {
-                rm.EnterRaces(0);
-            }
-            if (chbRace2.Checked)
-            {
-                rm.EnterRaces(1);
-            }
-            if (chbRace3.Checked)
-            {
-                rm.EnterRaces(2);
-            }
-            if (chbRace4.Checked)
-            {
-                rm.EnterRaces(3);
-            }
+                rm.AddRider(txpName.Text, txpSurname.Text, txpSchool.Text);
 
-            rm.SaveRiders();
+                if (chbRace1.Checked)
+                {
+                    rm.EnterRaces(0);
+                }
+                if (chbRace2.Checked)
+                {
+                    rm.EnterRaces(1);
+                }
+                if (chbRace3.Checked)
+                {
+                    rm.EnterRaces(2);
+                }
+                if (chbRace4.Checked)
+                {
+                    rm.EnterRaces(3);
+                }
 
-            MessageBox.Show("Rider Successfully Added \n"+rm.NewRiderSummary());
+                rm.SaveRiders();
+
+                MessageBox.Show("Rider Successfully Added \n" + rm.NewRiderSummary());
+            }
+            else
+            {
+                MessageBox.Show("You cannot enter 123!@# ect in a name or school", "ERROR",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
         
         private void rdbIndividual_CheckedChanged(object sender, EventArgs e)
@@ -78,6 +76,33 @@ namespace BikeRaceApp
             FormMainMenu window = new FormMainMenu(rm);
             window.FormClosed += (s, args) => this.Close();
             window.Show();
+        }
+
+        private void txpName_TextChanged(object sender, EventArgs e)
+        {
+            if (!Regex.IsMatch((txpName.Text), "^[a-zA-Z]*$"))
+            {
+                MessageBox.Show("You cannot enter 123!@# ect in a first name", "ERROR",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txpSurname_TextChanged(object sender, EventArgs e)
+        {
+            if (!Regex.IsMatch((txpSurname.Text), "^[a-zA-Z]*$"))
+            {
+                MessageBox.Show("You cannot enter 123!@# ect in a  surname", "ERROR",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txpSchool_TextChanged(object sender, EventArgs e)
+        {
+            if (!Regex.IsMatch((txpSchool.Text), "^[a-zA-Z]*$"))
+            {
+                MessageBox.Show("You cannot enter 123!@# ect in a school", "ERROR",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

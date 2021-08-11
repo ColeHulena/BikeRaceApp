@@ -83,6 +83,11 @@ namespace BikeRaceApp
         {
             return id;
         }
+        public bool GetSingleEntryStatus(int raceIndex)
+        {
+            return races[raceIndex].GetRaceStatus();
+        }
+        
         public List<bool> GetEntryStatus()
         {
             List<bool> entryStatus = new List<bool>();

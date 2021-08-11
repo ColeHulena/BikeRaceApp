@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -62,6 +63,11 @@ namespace BikeRaceApp
 
         private void txbSearchBar_TextChanged(object sender, EventArgs e)
         {
+            if (!Regex.IsMatch((txbSearchBar.Text), "^[a-zA-Z]*$"))
+            {
+                MessageBox.Show("You cannot enter 123!@# ect in a search bar", "ERROR",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             dv.RowFilter = string.Format("Name Like '%{0}%'", txbSearchBar.Text);
             PopulateListView(dv);
         }
@@ -114,7 +120,7 @@ namespace BikeRaceApp
                 dtpFinishTime.Enabled = true;
             }
             raceIndex = 1;
-            if (!rm.GetRaceTime(tempID, raceIndex).Equals("NA"))
+            if (!rm.GetRaceTime(tempID, raceIndex).Equals("9999999"))
             {
                 dtpFinishTime.Value = DateTime.ParseExact(rm.GetFinishTime(tempID, raceIndex), "HH:mm:ss",
                                        System.Globalization.CultureInfo.InvariantCulture);
@@ -130,7 +136,7 @@ namespace BikeRaceApp
                 dtpFinishTime.Enabled = true;
             }
             raceIndex = 2;
-            if (!rm.GetRaceTime(tempID, raceIndex).Equals("NA"))
+            if (!rm.GetRaceTime(tempID, raceIndex).Equals("9999999"))
             {
                 dtpFinishTime.Value = DateTime.ParseExact(rm.GetFinishTime(tempID, raceIndex), "HH:mm:ss",
                                        System.Globalization.CultureInfo.InvariantCulture);
@@ -146,7 +152,7 @@ namespace BikeRaceApp
                 dtpFinishTime.Enabled = true;
             }
             raceIndex = 3;
-            if (!rm.GetRaceTime(tempID, raceIndex).Equals("NA"))
+            if (!rm.GetRaceTime(tempID, raceIndex).Equals("9999999"))
             {
                 dtpFinishTime.Value = DateTime.ParseExact(rm.GetFinishTime(tempID, raceIndex), "HH:mm:ss",
                                        System.Globalization.CultureInfo.InvariantCulture);
@@ -161,13 +167,5 @@ namespace BikeRaceApp
             lblRaceTimeInput.Text = rm.GetRaceTime(tempID, raceIndex)+" Seconds";
             rm.SaveRiders();
         }
-
-
-
-        private void lblRaceTimeInput_Click(object sender, EventArgs e)
-        {
-            
-        }
-
     }
 }

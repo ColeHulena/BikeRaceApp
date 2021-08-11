@@ -54,6 +54,7 @@
             this.txpName.TabIndex = 4;
             this.txpName.Text = "Enter here";
             this.txpName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txpName.TextChanged += new System.EventHandler(this.txpName_TextChanged);
             // 
             // txpSurname
             // 
@@ -64,6 +65,7 @@
             this.txpSurname.TabIndex = 5;
             this.txpSurname.Text = "Enter here";
             this.txpSurname.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txpSurname.TextChanged += new System.EventHandler(this.txpSurname_TextChanged);
             // 
             // txpSchool
             // 
@@ -74,6 +76,7 @@
             this.txpSchool.TabIndex = 6;
             this.txpSchool.Text = "Enter here";
             this.txpSchool.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txpSchool.TextChanged += new System.EventHandler(this.txpSchool_TextChanged);
             // 
             // label1
             // 

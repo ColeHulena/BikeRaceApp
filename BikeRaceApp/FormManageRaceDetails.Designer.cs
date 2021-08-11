@@ -173,7 +173,6 @@
             this.lblRaceTimeInput.Size = new System.Drawing.Size(58, 13);
             this.lblRaceTimeInput.TabIndex = 33;
             this.lblRaceTimeInput.Text = "0 Seconds";
-            this.lblRaceTimeInput.Click += new System.EventHandler(this.lblRaceTimeInput_Click);
             // 
             // FormManageRaceDetails
             // 

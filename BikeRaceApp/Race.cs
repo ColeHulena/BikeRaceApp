@@ -21,7 +21,7 @@ namespace BikeRaceApp
         }
         public string CalculateRaceTime()
         {
-            string raceTime = "NA";
+            string raceTime;
 
 
             if (!this.finishTime.Equals("NA"))

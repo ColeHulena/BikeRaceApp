@@ -119,6 +119,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="FormManageRaceDetails.resx">
       <DependentUpon>FormManageRaceDetails.cs</DependentUpon>
@@ -132,6 +133,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\Montserrat.zip" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

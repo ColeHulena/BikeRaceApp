@@ -35,6 +35,24 @@ namespace BikeRaceApp
             return dt;
         }
 
+        public DataTable FillSearchTable()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Name");
+            dt.Columns.Add("Surname");
+            dt.Columns.Add("School");
+            dt.Columns.Add("Race 1");
+            dt.Columns.Add("Race 2");
+            dt.Columns.Add("Race 3");
+            dt.Columns.Add("Race 4");
+            foreach (var rider in riders)
+            {
+                dt.Rows.Add(rider.GetName(), rider.GetSurname(), rider.GetSchool(), rider.GetSingleEntryStatus(0), rider.GetSingleEntryStatus(1), rider.GetSingleEntryStatus(2), rider.GetSingleEntryStatus(3));
+            }
+
+            return dt;
+        }
+
         public void AddRider(string name, string surname, string school)
         {
             //Append to text file
