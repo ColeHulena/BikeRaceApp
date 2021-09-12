@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -166,6 +167,16 @@ namespace BikeRaceApp
             rm.SetRiderFinishTime(tempID, raceIndex, dtpFinishTime.Text);
             lblRaceTimeInput.Text = rm.GetRaceTime(tempID, raceIndex)+" Seconds";
             rm.SaveRiders();
+        }
+
+        private void FormManageRaceDetails_Load(object sender, EventArgs e)
+        {
+            PrivateFontCollection pfc = new PrivateFontCollection();
+            pfc.AddFontFile("Montserrat-Regular.ttf");
+            foreach (Control c in this.Controls)
+            {
+                c.Font = new Font(pfc.Families[0], c.Font.Size, c.Font.Style);
+            }
         }
     }
 }

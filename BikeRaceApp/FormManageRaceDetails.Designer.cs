@@ -194,6 +194,7 @@
             this.Controls.Add(this.lblSearch);
             this.Name = "FormManageRaceDetails";
             this.Text = "RiderRaceDetails";
+            this.Load += new System.EventHandler(this.FormManageRaceDetails_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

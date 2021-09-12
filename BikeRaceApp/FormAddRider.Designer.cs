@@ -208,6 +208,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormAddRider";
             this.Text = "Bike Race App";
+            this.Load += new System.EventHandler(this.FormAddRider_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

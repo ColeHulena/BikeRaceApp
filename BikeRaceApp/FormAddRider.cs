@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -22,37 +23,28 @@ namespace BikeRaceApp
 
         private void btnCreateTeam_Click(object sender, EventArgs e)
         {
-            if (Regex.IsMatch((txpName.Text + txpSurname + txpSchool), "^[a-zA-Z]*$"))
+            rm.AddRider(txpName.Text, txpSurname.Text, txpSchool.Text);
+
+            if (chbRace1.Checked)
             {
-                rm.AddRider(txpName.Text, txpSurname.Text, txpSchool.Text);
-
-                if (chbRace1.Checked)
-                {
-                    rm.EnterRaces(0);
-                }
-                if (chbRace2.Checked)
-                {
-                    rm.EnterRaces(1);
-                }
-                if (chbRace3.Checked)
-                {
-                    rm.EnterRaces(2);
-                }
-                if (chbRace4.Checked)
-                {
-                    rm.EnterRaces(3);
-                }
-
-                rm.SaveRiders();
-
-                MessageBox.Show("Rider Successfully Added \n" + rm.NewRiderSummary());
+                rm.EnterRaces(0);
             }
-            else
+            if (chbRace2.Checked)
             {
-                MessageBox.Show("You cannot enter 123!@# ect in a name or school", "ERROR",
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                rm.EnterRaces(1);
             }
-            
+            if (chbRace3.Checked)
+            {
+                rm.EnterRaces(2);
+            }
+            if (chbRace4.Checked)
+            {
+                rm.EnterRaces(3);
+            }
+
+            rm.SaveRiders();
+
+            MessageBox.Show("Rider Successfully Added \n" + rm.NewRiderSummary());
         }
         
         private void rdbIndividual_CheckedChanged(object sender, EventArgs e)
@@ -102,6 +94,16 @@ namespace BikeRaceApp
             {
                 MessageBox.Show("You cannot enter 123!@# ect in a school", "ERROR",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void FormAddRider_Load(object sender, EventArgs e)
+        {
+            PrivateFontCollection pfc = new PrivateFontCollection();
+            pfc.AddFontFile("Montserrat-Regular.ttf");
+            foreach (Control c in this.Controls)
+            {
+                c.Font = new Font(pfc.Families[0], c.Font.Size, c.Font.Style);
             }
         }
     }

@@ -81,6 +81,7 @@
             this.Controls.Add(this.btnBack);
             this.Name = "FormSearchRider";
             this.Text = "FormSearchRider";
+            this.Load += new System.EventHandler(this.FormSearchRider_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

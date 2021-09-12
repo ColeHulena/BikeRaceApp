@@ -23,7 +23,7 @@ namespace BikeRaceApp
         private void Form1_Load(object sender, EventArgs e)
         {
             PrivateFontCollection pfc = new PrivateFontCollection();
-            pfc.AddFontFile("Montserrat-Regular_d60d904c27aa445d89a0a8e18a1f3fed.ttf");
+            pfc.AddFontFile("Montserrat-Regular.ttf");
             foreach (Control c in this.Controls)
             {
                 c.Font = new Font(pfc.Families[0], c.Font.Size, c.Font.Style);
