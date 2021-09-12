@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAddRider));
-            this.txpName = new System.Windows.Forms.TextBox();
-            this.txpSurname = new System.Windows.Forms.TextBox();
-            this.txpSchool = new System.Windows.Forms.TextBox();
+            this.txbName = new System.Windows.Forms.TextBox();
+            this.txbSurname = new System.Windows.Forms.TextBox();
+            this.txbSchool = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,38 +45,35 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // txpName
+            // txbName
             // 
-            this.txpName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txpName.Location = new System.Drawing.Point(177, 113);
-            this.txpName.Name = "txpName";
-            this.txpName.Size = new System.Drawing.Size(158, 29);
-            this.txpName.TabIndex = 4;
-            this.txpName.Text = "Enter here";
-            this.txpName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txpName.TextChanged += new System.EventHandler(this.txpName_TextChanged);
+            this.txbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbName.Location = new System.Drawing.Point(177, 113);
+            this.txbName.Name = "txbName";
+            this.txbName.Size = new System.Drawing.Size(158, 29);
+            this.txbName.TabIndex = 4;
+            this.txbName.Text = "Enter here";
+            this.txbName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txpSurname
+            // txbSurname
             // 
-            this.txpSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txpSurname.Location = new System.Drawing.Point(177, 148);
-            this.txpSurname.Name = "txpSurname";
-            this.txpSurname.Size = new System.Drawing.Size(158, 29);
-            this.txpSurname.TabIndex = 5;
-            this.txpSurname.Text = "Enter here";
-            this.txpSurname.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txpSurname.TextChanged += new System.EventHandler(this.txpSurname_TextChanged);
+            this.txbSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbSurname.Location = new System.Drawing.Point(177, 148);
+            this.txbSurname.Name = "txbSurname";
+            this.txbSurname.Size = new System.Drawing.Size(158, 29);
+            this.txbSurname.TabIndex = 5;
+            this.txbSurname.Text = "Enter here";
+            this.txbSurname.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txpSchool
+            // txbSchool
             // 
-            this.txpSchool.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txpSchool.Location = new System.Drawing.Point(177, 183);
-            this.txpSchool.Name = "txpSchool";
-            this.txpSchool.Size = new System.Drawing.Size(158, 29);
-            this.txpSchool.TabIndex = 6;
-            this.txpSchool.Text = "Enter here";
-            this.txpSchool.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txpSchool.TextChanged += new System.EventHandler(this.txpSchool_TextChanged);
+            this.txbSchool.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbSchool.Location = new System.Drawing.Point(177, 183);
+            this.txbSchool.Name = "txbSchool";
+            this.txbSchool.Size = new System.Drawing.Size(158, 29);
+            this.txbSchool.TabIndex = 6;
+            this.txbSchool.Text = "Enter here";
+            this.txbSchool.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
             // 
@@ -202,9 +199,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txpSchool);
-            this.Controls.Add(this.txpSurname);
-            this.Controls.Add(this.txpName);
+            this.Controls.Add(this.txbSchool);
+            this.Controls.Add(this.txbSurname);
+            this.Controls.Add(this.txbName);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormAddRider";
             this.Text = "Bike Race App";
@@ -216,9 +213,9 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txpName;
-        private System.Windows.Forms.TextBox txpSurname;
-        private System.Windows.Forms.TextBox txpSchool;
+        private System.Windows.Forms.TextBox txbName;
+        private System.Windows.Forms.TextBox txbSurname;
+        private System.Windows.Forms.TextBox txbSchool;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
