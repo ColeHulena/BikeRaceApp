@@ -29,7 +29,10 @@ namespace BikeRaceApp
             dt.Columns.Add("ID");
             foreach (var rider in riders)
             {
-                dt.Rows.Add(rider.GetName(), rider.GetSurname(), rider.GetSchool(), rider.GetID());
+                if (rider.GetActive() == true)
+                {
+                    dt.Rows.Add(rider.GetName(), rider.GetSurname(), rider.GetSchool(), rider.GetID());
+                }
             }
 
             return dt;
@@ -99,11 +102,20 @@ namespace BikeRaceApp
                         riders[riders.Count - 1].SetFinishTime(i, finishTimesTxt[i]);
                     }
                 }
+                if (tokens[6] == "Inactive")
+                {
+                    riders[riders.Count - 1].SetActive();
+                }
             }
         }
         public void SetRiderFinishTime(int riderID, int raceIndex, string finishTime)
         {
             riders[riderID].SetFinishTime(raceIndex, finishTime);
+        }
+
+        public void SetRiderActive(int riderID)
+        {
+            riders[riderID].SetActive();
         }
 
         public string NewRiderSummary()
@@ -130,9 +142,12 @@ namespace BikeRaceApp
             string[] leaderboard = new string[2];
             foreach (Rider rider in riders)
             {
-                if (rider.CheckEntryStatus(raceIndex))
+                if (rider.GetActive() == true)
                 {
-                    tempriders.Add(rider);
+                    if (rider.CheckEntryStatus(raceIndex))
+                    {
+                        tempriders.Add(rider);
+                    }
                 }
             }
             //Testing / Debugging

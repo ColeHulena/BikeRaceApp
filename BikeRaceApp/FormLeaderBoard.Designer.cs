@@ -63,11 +63,11 @@
             this.lblNames.AutoSize = true;
             this.lblNames.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblNames.Font = new System.Drawing.Font("Dutch801 Rm BT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNames.Location = new System.Drawing.Point(218, 152);
+            this.lblNames.Location = new System.Drawing.Point(189, 152);
             this.lblNames.Name = "lblNames";
-            this.lblNames.Size = new System.Drawing.Size(338, 19);
+            this.lblNames.Size = new System.Drawing.Size(333, 19);
             this.lblNames.TabIndex = 25;
-            this.lblNames.Text = "Select a Race To view the respective leaderboard";
+            this.lblNames.Text = "Select a Race to view the respective leaderboard";
             // 
             // rbtnRace4
             // 

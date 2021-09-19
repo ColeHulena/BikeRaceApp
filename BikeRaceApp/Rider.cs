@@ -11,6 +11,7 @@ namespace BikeRaceApp
         private string name;
         private string surname;
         private string school;
+        private bool active = true;
         private int id;
         private List<Race> races = new List<Race>() {new Race(), new Race(), new Race(), new Race()};
 
@@ -21,6 +22,18 @@ namespace BikeRaceApp
             this.surname = surname;
             this.school = school;
             this.id = id;
+
+        }
+        public void SetActive()
+        {
+            if (active == true)
+            {
+                active = false;
+            }
+            else
+            {
+                active = true;
+            }
         }
 
         public void EnterRace(int raceNum)
@@ -63,7 +76,18 @@ namespace BikeRaceApp
             rStatus += ",";
 
             storeRider += rStatus + fTime;
+
+            if (active == true)
+            {
+                storeRider += ",Active";
+            }
+            else
+            {
+                storeRider += ",Inactive";
+            }
+
             
+
             return storeRider;
         }
 
@@ -82,6 +106,11 @@ namespace BikeRaceApp
         public int GetID()
         {
             return id;
+        }
+
+        public bool GetActive()
+        {
+            return active;
         }
         public bool GetSingleEntryStatus(int raceIndex)
         {

@@ -178,5 +178,13 @@ namespace BikeRaceApp
                 c.Font = new Font(pfc.Families[0], c.Font.Size, c.Font.Style);
             }
         }
+
+        private void btnRemoveRider_Click(object sender, EventArgs e)
+        {
+            rm.SetRiderActive(tempID);
+            rm.SaveRiders();
+            dv = new DataView(this.rm.FillDataTable());
+            PopulateListView(dv);
+        }
     }
 }

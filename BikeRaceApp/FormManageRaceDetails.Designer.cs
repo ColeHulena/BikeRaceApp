@@ -41,6 +41,7 @@
             this.lblFinishTime = new System.Windows.Forms.Label();
             this.lblRaceTime = new System.Windows.Forms.Label();
             this.lblRaceTimeInput = new System.Windows.Forms.Label();
+            this.btnRemoveRider = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblSearch
@@ -174,11 +175,22 @@
             this.lblRaceTimeInput.TabIndex = 33;
             this.lblRaceTimeInput.Text = "0 Seconds";
             // 
+            // btnRemoveRider
+            // 
+            this.btnRemoveRider.Location = new System.Drawing.Point(440, 398);
+            this.btnRemoveRider.Name = "btnRemoveRider";
+            this.btnRemoveRider.Size = new System.Drawing.Size(98, 34);
+            this.btnRemoveRider.TabIndex = 34;
+            this.btnRemoveRider.Text = "Remove Rider";
+            this.btnRemoveRider.UseVisualStyleBackColor = true;
+            this.btnRemoveRider.Click += new System.EventHandler(this.btnRemoveRider_Click);
+            // 
             // FormManageRaceDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(695, 450);
+            this.Controls.Add(this.btnRemoveRider);
             this.Controls.Add(this.lblRaceTimeInput);
             this.Controls.Add(this.lblRaceTime);
             this.Controls.Add(this.lblFinishTime);
@@ -215,5 +227,6 @@
         private System.Windows.Forms.Label lblFinishTime;
         private System.Windows.Forms.Label lblRaceTime;
         private System.Windows.Forms.Label lblRaceTimeInput;
+        private System.Windows.Forms.Button btnRemoveRider;
     }
 }
