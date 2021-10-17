@@ -48,9 +48,9 @@
             // txbName
             // 
             this.txbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbName.Location = new System.Drawing.Point(177, 113);
+            this.txbName.Location = new System.Drawing.Point(215, 113);
             this.txbName.Name = "txbName";
-            this.txbName.Size = new System.Drawing.Size(158, 29);
+            this.txbName.Size = new System.Drawing.Size(141, 29);
             this.txbName.TabIndex = 4;
             this.txbName.Text = "Enter here";
             this.txbName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -58,9 +58,9 @@
             // txbSurname
             // 
             this.txbSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbSurname.Location = new System.Drawing.Point(177, 148);
+            this.txbSurname.Location = new System.Drawing.Point(215, 153);
             this.txbSurname.Name = "txbSurname";
-            this.txbSurname.Size = new System.Drawing.Size(158, 29);
+            this.txbSurname.Size = new System.Drawing.Size(142, 29);
             this.txbSurname.TabIndex = 5;
             this.txbSurname.Text = "Enter here";
             this.txbSurname.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -68,9 +68,9 @@
             // txbSchool
             // 
             this.txbSchool.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbSchool.Location = new System.Drawing.Point(177, 183);
+            this.txbSchool.Location = new System.Drawing.Point(215, 188);
             this.txbSchool.Name = "txbSchool";
-            this.txbSchool.Size = new System.Drawing.Size(158, 29);
+            this.txbSchool.Size = new System.Drawing.Size(142, 29);
             this.txbSchool.TabIndex = 6;
             this.txbSchool.Text = "Enter here";
             this.txbSchool.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -111,11 +111,11 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 188);
+            this.label4.Location = new System.Drawing.Point(6, 188);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(124, 24);
+            this.label4.Size = new System.Drawing.Size(186, 24);
             this.label4.TabIndex = 10;
-            this.label4.Text = "Rider School:";
+            this.label4.Text = "Rider School(ABBR):";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnAddRider

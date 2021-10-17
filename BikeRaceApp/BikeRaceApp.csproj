@@ -46,12 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormCreateTeam.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormCreateTeam.Designer.cs">
-      <DependentUpon>FormCreateTeam.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormLeaderBoard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,12 +63,6 @@
     </Compile>
     <Compile Include="FormAddRider.Designer.cs">
       <DependentUpon>FormAddRider.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormMessageBox.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormMessageBox.Designer.cs">
-      <DependentUpon>FormMessageBox.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSearchRider.cs">
       <SubType>Form</SubType>
@@ -96,17 +84,11 @@
     <EmbeddedResource Include="FormAddRider.resx">
       <DependentUpon>FormAddRider.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormCreateTeam.resx">
-      <DependentUpon>FormCreateTeam.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormLeaderBoard.resx">
       <DependentUpon>FormLeaderBoard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMainMenu.resx">
       <DependentUpon>FormMainMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormMessageBox.resx">
-      <DependentUpon>FormMessageBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSearchRider.resx">
       <DependentUpon>FormSearchRider.cs</DependentUpon>
