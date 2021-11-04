@@ -56,7 +56,7 @@
             this.btnManageRider.TabIndex = 2;
             this.btnManageRider.Text = "Manage Race Details ";
             this.btnManageRider.UseVisualStyleBackColor = true;
-            this.btnManageRider.Click += new System.EventHandler(this.btnEditRiderTeam_Click);
+            this.btnManageRider.Click += new System.EventHandler(this.btnManageRaceDetails_Click);
             // 
             // btnSearch
             // 
@@ -106,7 +106,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMainMenu";
             this.Text = "Bike Race App";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.FormMainMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

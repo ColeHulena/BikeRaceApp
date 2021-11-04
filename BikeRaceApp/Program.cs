@@ -13,7 +13,9 @@ namespace BikeRaceApp
         [STAThread]
         static void Main()
         {
+            //Initializing Racemanager class and passing it through all the other classes
             RaceManager rm = new RaceManager();
+            //Loading Riders
             rm.LoadRiders();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

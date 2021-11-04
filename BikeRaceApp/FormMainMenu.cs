@@ -20,7 +20,8 @@ namespace BikeRaceApp
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        //Adding custom font to this form
+        private void FormMainMenu_Load(object sender, EventArgs e)
         {
             PrivateFontCollection pfc = new PrivateFontCollection();
             pfc.AddFontFile("Montserrat-Regular.ttf");
@@ -29,12 +30,7 @@ namespace BikeRaceApp
                 c.Font = new Font(pfc.Families[0], c.Font.Size, c.Font.Style);
             }
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        //Sending user to add rider component
         private void btnAddRider_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -42,8 +38,8 @@ namespace BikeRaceApp
             window.FormClosed += (s, args) => this.Close();
             window.Show();
         }
-
-        private void btnEditRiderTeam_Click(object sender, EventArgs e)
+        //Sending user to manage race details component
+        private void btnManageRaceDetails_Click(object sender, EventArgs e)
         {
             this.Hide();
             FormManageRaceDetails window = new FormManageRaceDetails(rm);
@@ -51,7 +47,7 @@ namespace BikeRaceApp
             window.Show();
 
         }
-
+        //Sending user to leaderboards component
         private void btnLeaderboards_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -59,7 +55,7 @@ namespace BikeRaceApp
             window.FormClosed += (s, args) => this.Close();
             window.Show();
         }
-
+        //Sending user to search component
         private void btnSearch_Click(object sender, EventArgs e)
         {
             this.Hide();

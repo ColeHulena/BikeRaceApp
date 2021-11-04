@@ -14,13 +14,13 @@ namespace BikeRaceApp
     public partial class FormLeaderBoard : Form
     {
         RaceManager rm;
-        int raceIndex = 1;
         public FormLeaderBoard(RaceManager rm)
         {
             this.rm = rm;
             InitializeComponent();
         }
 
+        //Sending the user back to the main menu
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -28,13 +28,9 @@ namespace BikeRaceApp
             window.FormClosed += (s, args) => this.Close();
             window.Show();
         }
-
+        //Adding custom font to form
         private void FormLeaderBoard_Load(object sender, EventArgs e)
         {
-            if (rm.GenerateLeardboard(raceIndex) != null)
-            {
-
-            }
             PrivateFontCollection pfc = new PrivateFontCollection();
             pfc.AddFontFile("Montserrat-Regular.ttf");
             foreach (Control c in this.Controls)
@@ -44,6 +40,7 @@ namespace BikeRaceApp
 
         }
 
+        //Checking to see if the program should display the leaderboard for this specific race
         private void rbtnRace1_CheckedChanged(object sender, EventArgs e)
         {
             lblNames.Text = rm.GenerateLeardboard(0)[0];
@@ -51,19 +48,19 @@ namespace BikeRaceApp
             //Debugging
             //MessageBox.Show(rm.GenerateLeardboard(0));
         }
-
+        //Checking to see if the program should display the leaderboard for this specific race
         private void rbtnRace2_CheckedChanged(object sender, EventArgs e)
         {
             lblNames.Text = rm.GenerateLeardboard(1)[0];
             lblTimes.Text = rm.GenerateLeardboard(1)[1];
         }
-
+        //Checking to see if the program should display the leaderboard for this specific race
         private void rbtnRace3_CheckedChanged(object sender, EventArgs e)
         {
             lblNames.Text = rm.GenerateLeardboard(2)[0];
             lblTimes.Text = rm.GenerateLeardboard(2)[1];
         }
-
+        //Checking to see if the program should display the leaderboard for this specific race
         private void rbtnRace4_CheckedChanged(object sender, EventArgs e)
         {
             lblNames.Text = rm.GenerateLeardboard(3)[0];

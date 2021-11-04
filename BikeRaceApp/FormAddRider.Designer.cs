@@ -126,7 +126,7 @@
             this.btnAddRider.TabIndex = 17;
             this.btnAddRider.Text = "Add Rider";
             this.btnAddRider.UseVisualStyleBackColor = true;
-            this.btnAddRider.Click += new System.EventHandler(this.btnCreateTeam_Click);
+            this.btnAddRider.Click += new System.EventHandler(this.btnAddRider_Click);
             // 
             // chbRace1
             // 
